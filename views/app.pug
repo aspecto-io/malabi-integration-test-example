@@ -1,0 +1,12 @@
+extends layout
+
+block content
+    p Welcome to the app screen <b>#{user}</b>
+    form(action='/todos/', method='POST', onsubmit="function(resp) { console.log('resp', resp) }")
+        p
+            | new todo text:
+            input(type='text', name='username', value='hi')
+        input(type='submit', value='Submit')
+    ul
+      each val in todos
+          li= val.text
