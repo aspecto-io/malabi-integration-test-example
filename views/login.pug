@@ -2,10 +2,10 @@ extends layout
 
 block content
   body
-    form(action='/auth/login', method='POST')
+    form(action='/auth/login?redirectToTodos=true', method='POST')
       p
         | username:
         input(type='text', name='username', value='tom@a.com')
-        |          <br/>password
+        |          <br/>password:
         input(type='password', name='password', value='password')
       input(type='submit', value='Submit')

@@ -2,7 +2,7 @@ extends layout
 
 block content
     p Welcome to the app screen <b>#{user}</b>
-    form(action='/todos/', method='POST', onsubmit="function(resp) { console.log('resp', resp) }")
+    form(action='/todos/', method='POST')
         p
             | new todo text:
             input(type='text', name='username', value='hi')

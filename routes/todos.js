@@ -16,15 +16,10 @@ const todoSchema = new mongoose.Schema({
 
 const Todo = mongoose.model('Todo', todoSchema);
 
-/* GET users listing. */
-// router.get('/', function(req, res, next) {
-//   res.send('respond with a resource');
-// });
-
 router.get('/',
   (req, res, next) => {
     passport.authenticate('jwt', { session: false },  async (err, user, info) => {
-      if (err)  {
+      if (err) {
         console.log('error is', err);
         res.status(500).send('An error has occurred, we cannot greet you at the moment.');
       }
@@ -35,7 +30,6 @@ router.get('/',
         const todos = await Todo.find({ email });
 
         res.render('app',{ success: true, user: email, todos });
-        // res.render('app', { user: user.email, todos: [{ text: "hi"}] });
       }
     })(req, res, next);
   });
